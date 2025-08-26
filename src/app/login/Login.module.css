@@ -24,7 +24,7 @@
   padding: 40px;
   
   /* Cor de fundo semi-transparente */
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--card-background);
   border-radius: 10px; /* Cantos arredondados */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
   backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */

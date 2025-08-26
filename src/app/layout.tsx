@@ -23,16 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<html lang="en" suppressHydrationWarning> {/* suppressHydrationWarning é recomendado */}
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning > {/* suppressHydrationWarning é recomendado */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* 2. Envolver o children com o ThemeProvider */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
