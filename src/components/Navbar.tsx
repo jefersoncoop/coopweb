@@ -3,8 +3,9 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react'; 
+import { useState } from 'react';
 import styles from './Navbar.module.css';
+import { ThemeSwitcher } from './ThemeSwitcher'; // 1. Importar
 
 export default function Navbar() {
   const router = useRouter();
@@ -41,8 +42,8 @@ export default function Navbar() {
         <li>
           <Link href="/dashboard">Dashboard</Link>
         </li>
-        
-        <li 
+
+        <li
           className={styles.dropdown}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -69,9 +70,12 @@ export default function Navbar() {
           <Link href="/outra-pagina">Outra Página</Link>
         </li>
       </ul>
-      <button onClick={handleLogout} className={styles.logoutButton}>
-        Sair
-      </button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <ThemeSwitcher /> {/* 2. Adicionar o botão */}
+        <button onClick={handleLogout} className={styles.logoutButton}>
+          Sair
+        </button>
+      </div>
     </nav>
   );
 }

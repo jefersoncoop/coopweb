@@ -1,42 +1,38 @@
-/* src/app/globals.css (versão corrigida e limpa) */
-
-/* 1. Reset Global (remove a borda branca) */
+/* src/app/globals.css (versão com temas) */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-/* 2. Configurações base para HTML e Body */
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Variáveis para o TEMA CLARO (padrão) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card-background: rgba(255, 255, 255, 0.9);
+  --navbar-background: #2c3e50;
+  --navbar-text: #ffffff;
+  --navbar-hover: #1abc9c;
 }
 
-/* 3. Estilos de tema e fontes (do seu layout) */
-:root {
-  --font-geist-sans: "__Geist_1f2167", "__Geist_Fallback_1f2167";
-  --font-geist-mono: "__GeistMono_49b990", "__GeistMono_Fallback_49b990";
+/* Variáveis para o TEMA ESCURO */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card-background: rgba(10, 10, 10, 0.85);
+  --navbar-background: #1a202c;
+  --navbar-text: #e2e8f0;
+  --navbar-hover: #38b2ac;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans); /* Usando a fonte do layout */
-}
-
-/* 4. Variáveis de Tema (seu código original) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
