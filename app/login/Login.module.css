@@ -1,0 +1,87 @@
+/* app/login/Login.module.css */
+
+/* O container principal da página */
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa a altura total da tela */
+  width: 100vw; /* Ocupa a largura total da tela */
+
+  /* A imagem de fundo */
+  background-image: url('/fundo-login.jpg');
+  background-size: cover; /* Faz a imagem cobrir todo o espaço */
+  background-position: center; /* Centraliza a imagem */
+}
+
+/* O "card" do formulário de login */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os elementos do formulário */
+  width: 100%;
+  max-width: 400px; /* Largura máxima do card */
+  padding: 40px;
+  
+  /* Cor de fundo semi-transparente */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputLabel {
+  font-weight: 500;
+  color: #555;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.submitButton {
+  padding: 12px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.errorMessage {
+  color: #d93025;
+  text-align: center;
+  font-weight: 500;
+}

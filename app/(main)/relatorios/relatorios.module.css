@@ -1,0 +1,111 @@
+/* app/(main)/dashboard/Dashboard.module.css */
+
+/* Container para a tabela, permite rolagem horizontal em telas pequenas */
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Estilo principal da tabela */
+.dataTable {
+  width: 100%;
+  border-collapse: collapse; /* Remove o espaço entre as bordas das células */
+
+  /* A propriedade mais importante para colunas de tamanho igual! */
+  table-layout: fixed; 
+}
+
+/* Estilo para as células do cabeçalho (th) и de dados (td) */
+.dataTable th,
+.dataTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+  overflow: hidden; /* Esconde o que não couber na célula */
+  text-overflow: ellipsis; /* Adiciona "..." ao texto que não couber */
+}
+
+/* Estilo específico para o cabeçalho */
+.dataTable th {
+  background-color: #f4f6f8;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* Efeito de hover nas linhas para melhor visualização */
+.dataTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+/* app/relatorios/relatorios.module.css */
+
+.exportButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #218838; /* Verde */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.exportButton:hover {
+  background-color: #1e7e34;
+}
+/* app/relatorios/relatorios.module.css */
+
+/* ... (seus estilos existentes .tableContainer, .dataTable, etc., continuam aqui) ... */
+
+/* Container principal para a linha de ações */
+.actionsContainer {
+  display: flex;                 /* Ativa o layout Flexbox */
+  justify-content: space-between;  /* Joga os itens para os cantos opostos */
+  align-items: center;           /* Alinha os itens verticalmente ao centro */
+  flex-wrap: wrap;               /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+  gap: 20px;                     /* Adiciona um espaço entre os itens */
+  margin-bottom: 20px;           /* Espaço abaixo da barra de ações */
+}
+
+/* Estilo para o formulário de busca dentro do container flex */
+.searchForm {
+  display: flex;        /* Também usa flex para alinhar os selects e o botão */
+  align-items: center;
+  gap: 10px;            /* Espaço entre os selects e o botão de busca */
+}
+
+/* Ajuste no botão de exportar para remover a margem que colocamos antes */
+.exportButton {
+  display: inline-block;
+  /* margin-top: 20px; */ /* <-- Remova ou comente esta linha */
+  padding: 10px 15px;
+  background-color: #218838;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Ajustes de estilo para os selects e botões para consistência (opcional) */
+.searchForm select,
+.searchForm button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchForm button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.searchForm button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
