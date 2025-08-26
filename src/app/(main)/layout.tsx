@@ -1,6 +1,7 @@
-// app/(main)/layout.tsx
-import Navbar from "@/components/Navbar"; // O '@' é um atalho para a raiz do projeto
-import '@/src/app/globals.css';
+// app/(main)/layout.tsx (Versão Final Corrigida)
+
+import Navbar from "@/components/Navbar";
+
 export default function MainLayout({
   children,
 }: {

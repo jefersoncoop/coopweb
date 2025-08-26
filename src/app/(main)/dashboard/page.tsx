@@ -72,8 +72,6 @@ export default function DashboardPage() {
   };
 
   return (
-    <html>
-    <body>
     <div style={{ padding: '20px' }}>
       <h1>Dashboard de Busca</h1>
       
@@ -106,7 +104,5 @@ export default function DashboardPage() {
         )}
       </div>
     </div>
-    </body>
-    </html>
   );
 }
