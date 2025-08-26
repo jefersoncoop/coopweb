@@ -7,15 +7,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>  
     <div>
       <Navbar />
       <main style={{ padding: '20px' }}>
         {children}
       </main>
     </div>
-    </body>
-    </html>
   );
 }
