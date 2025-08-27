@@ -54,7 +54,7 @@ export default function Navbar() {
           {isDropdownOpen && (
             <ul className={styles.dropdownMenu}>
               <li>
-                <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>Relatorios</Link>
+                <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>Folha por mes</Link>
               </li>
             </ul>
           )}

@@ -36,3 +36,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
 }
+.searchForm select,
+.searchForm button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchForm button {
+  background-color: #007bff;
+  color: rgb(123, 169, 95);
+  cursor: pointer;
+}
+
+.searchForm button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}

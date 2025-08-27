@@ -84,7 +84,7 @@ export default function DashboardPage() {
           placeholder="Digite o nome para buscar"
           style={{ padding: '8px', width: '300px' }}
         />
-        <button type="submit" disabled={loading} >
+        <button type="submit" disabled={loading} style={{ padding: '8px 16px', marginLeft: '10px' }}>
           {loading ? 'Buscando...' : 'Buscar'}
         </button>
       </form>
