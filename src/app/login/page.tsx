@@ -7,6 +7,11 @@ import { useRouter } from 'next/navigation';
 import styles from './Login.module.css'; // Importa nosso novo arquivo de estilo
 
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Login', // Isso resultará em "Login | Coop Web" na aba
+};
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');

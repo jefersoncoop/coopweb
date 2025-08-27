@@ -5,6 +5,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Relatorios', // Isso resultará em "Login | Coop Web" na aba
+};
+
 // 1. Importar o novo arquivo de estilo
 import styles from './relatorios.module.css';
 import { CSVLink } from 'react-csv';

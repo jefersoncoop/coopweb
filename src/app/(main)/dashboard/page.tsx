@@ -5,6 +5,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dashboard', // Isso resultará em "Login | Coop Web" na aba
+};
+
 
 // A interface para os dados continua a mesma
 interface ApiData {
