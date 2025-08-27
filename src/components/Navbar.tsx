@@ -56,18 +56,8 @@ export default function Navbar() {
               <li>
                 <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>Relatorios</Link>
               </li>
-              <li>
-                <Link href="/servicos/relatorios" onClick={() => setDropdownOpen(false)}>_____</Link>
-              </li>
-              <li>
-                <Link href="/servicos/config" onClick={() => setDropdownOpen(false)}>_____</Link>
-              </li>
             </ul>
           )}
-        </li>
-
-        <li>
-          <Link href="/outra-pagina">Outra Página</Link>
         </li>
       </ul>
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
