@@ -49,12 +49,12 @@ export default function Navbar() {
           onMouseLeave={handleMouseLeave}
         >
           <button className={styles.dropdownToggle}>
-            Serviços ▼
+            Relatorios ▼
           </button>
           {isDropdownOpen && (
             <ul className={styles.dropdownMenu}>
               <li>
-                <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>Folha por mes</Link>
+                <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>RELAÇÃO DE FOLHA E COPERADOS PAGOS NO MES</Link>
               </li>
             </ul>
           )}
