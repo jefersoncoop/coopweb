@@ -56,6 +56,9 @@ export default function Navbar() {
               <li>
                 <Link href="/relatorios/" onClick={() => setDropdownOpen(false)}>RELAÇÃO DE FOLHA E COPERADOS PAGOS NO MES</Link>
               </li>
+              <li>
+                <Link href="/relatoriogeral/" onClick={() => setDropdownOpen(false)}>RELAÇÃO GERAL DE COPERADOS</Link>
+              </li>
             </ul>
           )}
         </li>

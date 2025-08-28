@@ -1,24 +1,22 @@
 // app/login/page.tsx
 "use client";
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from './Login.module.css'; // Importa nosso novo arquivo de estilo
 
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Login', // Isso resultará em "Login | Coop Web" na aba
-};
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-
+  useEffect(() => {
+    // Esta linha corre no navegador e define o título da aba
+    document.title = "Login | Coop Web";
+  }, []); // O array vazio [] garante que isto só corre uma vez
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');

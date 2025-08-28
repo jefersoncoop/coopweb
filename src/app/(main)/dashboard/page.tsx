@@ -5,11 +5,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Dashboard', // Isso resultará em "Login | Coop Web" na aba
-};
+import styles from './dashboard.module.css';
 
 
 // A interface para os dados continua a mesma
@@ -17,11 +13,24 @@ interface ApiData {
   CPF: number;
   NOME: string;
   COD_COOPERADO: string;
-}
+  ATIVO_INAT: string;
+  DATA_ASSOC: string;
+  NASCIMENTO: string;
 
+}
+function formatDate(isoDate: string) {
+  const date = new Date(isoDate);
+  const dia = String(date.getDate()).padStart(2, '0');
+  const mes = String(date.getMonth() + 1).padStart(2, '0');
+  const ano = date.getFullYear();
+  return `${dia}/${mes}/${ano}`;
+}
 export default function DashboardPage() {
   const router = useRouter();
-  
+  useEffect(() => {
+    // Esta linha corre no navegador e define o título da aba
+    document.title = "Dashboard | Coop Web";
+  }, []); // O array vazio [] garante que isto só corre uma vez
   // NOVO ESTADO: para guardar o termo da busca
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -72,10 +81,6 @@ export default function DashboardPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    router.push('/login');
-  };
 
   return (
     <div style={{ padding: '20px' }}>
@@ -97,16 +102,38 @@ export default function DashboardPage() {
 
       {/* ÁREA DE RESULTADOS */}
       <div style={{ marginTop: '20px' }}>
+        {loading && <p>Carregando dados...</p>}
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        
-        {data.length > 0 && (
-          <ul>
-            {data.map(item => (
-              <li key={item.CPF}>
-                <strong>{item.COD_COOPERADO}:</strong> CPF: {item.CPF} NOME: {item.NOME}
-              </li>
-            ))}
-          </ul>
+
+        {!loading && data.length > 0 && (
+          <div className={styles.tableContainer}>
+            <table className={styles.dataTable}>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Código Cooperado</th>
+                  <th>CPF</th>
+                  <th>Nome</th>
+                  <th>Data Associação</th>
+                  <th>Nascimento</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map(item => (
+                  <tr key={item.COD_COOPERADO}>
+                    <td>{item.ATIVO_INAT}</td>
+                    <td>{item.COD_COOPERADO}</td>
+                    <td>{item.CPF}</td>
+                    <td>{item.NOME}</td>
+                    <td>{formatDate(item.DATA_ASSOC)}</td>
+                    <td>{formatDate(item.NASCIMENTO)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )} {!loading && !error && data.length === 0 && (
+          <p>Nenhum resultado encontrado. Faça uma busca para exibir os dados.</p>
         )}
       </div>
     </div>

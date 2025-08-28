@@ -5,11 +5,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 const appurl = process.env.NEXT_PUBLIC_SYSURL;
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Relatorios', // Isso resultará em "Login | Coop Web" na aba
-};
 
 // 1. Importar o novo arquivo de estilo
 import styles from './relatorios.module.css';
@@ -50,6 +45,10 @@ const formatarMoeda = (valor: number) => {
 export default function RelatoriosPage() {
   const router = useRouter();
   // 2. DEFINIR OS CABEÇALHOS PARA O ARQUIVO CSV
+  useEffect(() => {
+    // Esta linha corre no navegador e define o título da aba
+    document.title = "Relatorios | Coop Web";
+  }, []); // O array vazio [] garante que isto só corre uma vez
   const headers = [
     {label : 'Código Cooperado', key: 'COD_COOPERADO' },
     {label : 'Mês', key: 'MES' },

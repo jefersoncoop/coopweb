@@ -11,12 +11,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
-  title: {
-    template: '%s | Coop Web', // %s será substituído pelo título da página específica
-    default: 'Coop Web', // Título padrão caso uma página não defina um
-  },
+  title: "Coop Web - Gestão de Cooperados",
   description: "Sistema de gestão para cooperativas.",
 };
 
