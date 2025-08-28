@@ -27,6 +27,7 @@ interface ApiData {
   MODALIDADE: string;
   NRO_INSS: string;
   NASCIMENTO: string;
+  total: number;
 
 }
 function formatDate(isoDate: string) {
@@ -36,14 +37,6 @@ function formatDate(isoDate: string) {
   const ano = date.getFullYear();
   return `${dia}/${mes}/${ano}`;
 }
-const formatarMoeda = (valor: number) => {
-  if (valor === null || valor === undefined) return '-';
-  // Converte 835.4 para "R$ 835,40"
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(valor);
-};
 // 1. RENOMEAR O COMPONENTE PARA MAIOR CLAREZA
 export default function RelatoriosPage() {
   const router = useRouter();
@@ -54,6 +47,7 @@ export default function RelatoriosPage() {
   const [totalPages, setTotalPages] = useState(1); // Estado para total de páginas
   const [shouldFetch, setShouldFetch] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [totalCooperados, setTotalCooperados] = useState(0);
 
   useEffect(() => {
     document.title = "Relatorio Geral | Coop Web";
@@ -83,6 +77,7 @@ export default function RelatoriosPage() {
       const total = response.data.total || 0;
       const pageSize = response.data.pageSize || 20;
       setTotalPages(Math.ceil(total / pageSize));
+      setTotalCooperados(total);
     } catch (err) {
       setError('Falha ao buscar dados. Verifique o termo e tente novamente.');
     } finally {
@@ -117,7 +112,7 @@ export default function RelatoriosPage() {
   ];
   return (
     <div>
-      <h1>Todos os Cooperados</h1>
+      <h1>Todos os Cooperados Total: (total) </h1>
       <div className={styles.actionsContainer}>
         {/* NOVO FORMULÁRIO DE BUSCA */}
         <form onSubmit={handleSearch}>
@@ -139,7 +134,8 @@ export default function RelatoriosPage() {
           >
             Exportar para CSV
           </CSVLink>
-        )}
+          )
+        }
       </div>
 
       {/*
@@ -151,6 +147,10 @@ export default function RelatoriosPage() {
 
         {!loading && data.length > 0 && (
           <>
+                      <h2 style={{ marginBottom: '16px' }}>
+               {totalCooperados}
+            </h2>
+
             <div className={styles.tableContainer}>
               <table className={styles.dataTable}>
                 <thead>
